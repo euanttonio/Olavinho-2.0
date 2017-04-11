@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
+    public GameObject menu;
+    public GameObject canvas;
+
     public Estado estado;
 
     public float espera;
@@ -38,6 +41,8 @@ public class GameController : MonoBehaviour {
 
     public void PlayerComecou(){
         estado = Estado.Jogando;
+        menu.SetActive(false);
+        canvas.SetActive(false);
         StartCoroutine(GerarObstaculos());
     }
 
