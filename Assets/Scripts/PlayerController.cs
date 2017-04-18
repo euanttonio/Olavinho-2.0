@@ -21,15 +21,12 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (GameController.instancia.estado == Estado.Jogando || GameController.instancia.estado == Estado.AguardoComecar){
+        if (GameController.instancia.estado == Estado.Jogando){
             if (Input.GetMouseButtonDown(0)){
                 anim.Play("pulando");
                 audioSource.PlayOneShot(somPulo);
                 rb.useGravity = true;
                 pulando = true;
-                if (GameController.instancia.estado == Estado.AguardoComecar){
-                    GameController.instancia.PlayerComecou();
-                }
             }
         }
 	}
