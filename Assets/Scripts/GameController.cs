@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour {
     private int pontos;
     public Text txtPontos;
 
-    public GameObject menu;
-    public GameObject painelMenu;
+    public GameObject menuCamera;
+    public GameObject menuPanel;
 
     public Estado estado;
 
@@ -20,7 +20,11 @@ public class GameController : MonoBehaviour {
     
     public static GameController instancia = null;
 
-	void Awake () {
+    public void incrementarPontos(int x) {
+        atualizarPontos(pontos + x);
+    }
+
+    void Awake () {
         if(instancia == null){
             instancia = this;
         }
@@ -46,8 +50,8 @@ public class GameController : MonoBehaviour {
 
     public void PlayerComecou(){
         estado = Estado.Jogando;
-        menu.SetActive(false);
-        painelMenu.SetActive(false);
+        menuCamera.SetActive(false);
+        menuPanel.SetActive(false);
         atualizarPontos(0);
         StartCoroutine(GerarObstaculos());
     }
