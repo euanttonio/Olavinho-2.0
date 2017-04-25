@@ -14,10 +14,25 @@ public class PlayerController : MonoBehaviour {
 
     private bool pulando = false;
 
-	void Start () {
+    private Vector3 posicaoInicial;
+    private Quaternion rotacaoInicial;
+
+    public void recomecar() {
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        rb.detectCollisions = true;
+        transform.localPosition = posicaoInicial;
+        transform.localRotation = rotacaoInicial;
+    }
+
+
+    void Start () {
+        posicaoInicial = transform.localPosition;
+        rotacaoInicial = transform.localRotation;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+
 	}
 	
 	void Update () {
